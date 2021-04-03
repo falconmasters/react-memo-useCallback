@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import Encabezado from './Encabezado';
+import ComponenteHijo from './ComponenteHijo';
+import './estilos.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+	const [contador1, cambiarContador1] = useState(1);
+	const [contador2, cambiarContador2] = useState(1);
+	const [contador3, cambiarContador3] = useState(1);
+
+	const aumentar1 = () => {
+		cambiarContador1(contador1 + 1);
+	};
+
+	const aumentar2 = () => {
+		cambiarContador2(contador2 + 1);
+	};
+
+	const aumentar3 = () => {
+		cambiarContador3(contador3 + 1);
+	};
+
+	return (
+		<div className="grid">
+			<Encabezado />
+			<ComponenteHijo texto="Contador 1" cuenta={contador1} sumarUno={aumentar1} />
+			<ComponenteHijo texto="Contador 2" cuenta={contador2} sumarUno={aumentar2} />
+			<ComponenteHijo texto="Contador 3" cuenta={contador3} sumarUno={aumentar3} />
+		</div>
+	);
 }
-
+ 
 export default App;
