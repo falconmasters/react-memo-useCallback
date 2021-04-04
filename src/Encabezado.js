@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Encabezado = () => {
-	
+	console.log('Encabezado Renderizado');
 	return (
 		<div className="encabezado">
 			<h1>Contadores</h1>
@@ -9,4 +9,4 @@ const Encabezado = () => {
 	);
 }
  
-export default Encabezado;
+export default React.memo(Encabezado);
